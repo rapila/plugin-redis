@@ -1,0 +1,7 @@
+strategies:
+  redis:
+    class: CachingStrategyRedis
+    options:
+      host: "fillme"
+      port: 6379
+      password: "fillme"
