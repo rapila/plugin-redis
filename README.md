@@ -4,24 +4,24 @@
 
 Add a configuration for the redis caching strategy to a config/caching.yml:
 
-  strategies:
-  …
-    redis:
-      class: "CachingStrategyRedis"
-      options:
-        host: "fillme"
-        port: 6379
-        password: "fillme"
+	strategies:
+	…
+		redis:
+			class: "CachingStrategyRedis"
+			options:
+				host: "fillme"
+				port: 6379
+				password: "fillme"
 
 Use the strategies for the modules you want:
 
-  modules:
-    templates: "redis"
+	modules:
+		templates: "redis"
 
 Or use it for all modules (except images, which has to be overridden explicitly):
 
-  modules:
-    _default: "redis"
+	modules:
+		_default: "redis"
 
 
 ## License
