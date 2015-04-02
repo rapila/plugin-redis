@@ -6,5 +6,6 @@ strategies:
     class: CachingStrategyRedis
     options:
       host: "fillme"
+      prefix: rapila
       port: 6379
       password: "fillme"
