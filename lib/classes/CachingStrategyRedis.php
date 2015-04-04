@@ -52,7 +52,7 @@ class CachingStrategyRedis extends CachingStrategy {
 
 	public function date(Cache $oCache) {
 		$sTimestampKey = $this->key($this->replaceOption($oCache, $this->timestamp_key));
-		$sEntry = $this->oRedisClient->get($sTimestampKey);
+		return (int)$this->oRedisClient->get($sTimestampKey);
 	}
 	
 	private function key($sKey) {

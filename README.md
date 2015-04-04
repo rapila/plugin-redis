@@ -11,6 +11,7 @@ Add a configuration for the redis caching strategy to a config/caching.yml:
 			options:
 				host: "fillme"
 				port: 6379
+				prefix: 'my-rapila'
 				password: "fillme"
 
 Use the strategies for the modules you want:
