@@ -65,9 +65,11 @@ class CachingStrategyRedis extends CachingStrategy {
 	}
 
 	public function clearCaches() {
-		$aKeys = $this->oRedisClient->keys($this->key('*'));
-		if(count($aKeys) > 0) {
-			$this->oRedisClient->del($aKeys);
-		}
+		try {
+			$aKeys = $this->oRedisClient->keys($this->key('*'));
+			if(count($aKeys) > 0) {
+				$this->oRedisClient->del($aKeys);
+			}
+		} catch (Exception $e) {}
 	}
 }
