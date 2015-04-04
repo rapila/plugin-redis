@@ -55,10 +55,15 @@ class CachingStrategyRedis extends CachingStrategy {
 		return (int)$this->oRedisClient->get($sTimestampKey);
 	}
 	
+	public function size(Cache $oCache) {
+		$sKey = $this->key($this->replaceOption($oCache, $this->key));
+		return $this->oRedisClient->strlen($sKey);
+	}
+
 	private function key($sKey) {
 		return ($this->prefix ? $this->prefix . ':' : '') . $sKey;
 	}
-	
+
 	public function clearCaches() {
 		$aKeys = $this->oRedisClient->keys($this->key('*'));
 		if(count($aKeys) > 0) {
